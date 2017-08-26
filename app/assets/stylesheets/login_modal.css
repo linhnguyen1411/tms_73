@@ -1,0 +1,54 @@
+.nav-tabs {
+    margin-bottom: 15px;
+}
+.sign-with {
+    margin-top: 25px;
+    padding: 20px;
+}
+div#OR {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #C2C2C2;
+    border-radius: 50%;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: center;
+    font-size: 12px;
+    float: right;
+    position: absolute;
+    right: -16px;
+    top: 40%;
+    z-index: 1;
+    background: #DFDFDF;
+}
+#login-title {
+    font-size: 70px;
+    color:red;
+    font-weight: bolder;
+}
+#login-logo {
+    width: 50%
+}
+#login-logo img {
+    width: 40%
+}
+
+.login-banner img {
+    width: 100%
+}
+.login-footer{
+    padding-top:80px;
+}
+.login-footer ul{
+    list-style-type: none;
+    font-size: 15px
+}
+.fheader{
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+}
+#framgia{
+    color: blue;
+    font-weight: bold;
+}

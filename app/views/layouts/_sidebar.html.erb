@@ -1,0 +1,31 @@
+<div id="sidebar">
+  <div class="sidebar-scroll">
+    <div class="sidebar-content">
+      <%= link_to raw('<i class="hi hi-home"></i> Home'), root_path, class: "sidebar-brand" %>
+      <div class="sidebar-section sidebar-user clearfix">
+        <div class="sidebar-user-avatar">
+            <%= image_tag "placeholders/avatars/profile.png" %>
+        </div>
+        <div class="sidebar-user-name"></div>
+        <div class="sidebar-user-links">
+          <%= link_to do %>
+            <i class="gi gi-user"></i>
+          <% end %>
+          <%= link_to logout_path, method: :delete do %>
+            <i class="gi gi-exit"></i>
+          <% end %>
+        </div>
+      </div>
+      <!-- END User Info -->
+      <!-- Sidebar Navigation -->
+      <ul class="sidebar-nav">
+        <li class="sidebar-header">
+          <span class="sidebar-header-title" style="font-size: 25px">Workspace</span>
+        </li>
+        <li><%= link_to raw('<i class="fa fa-users fa-fw"></i> Users'), users_path%></li>
+        <li><%= link_to raw('<i class="hi hi-book"></i> Subject'), subjects_path %></li>
+        <li><%= link_to raw('<i class="fa fa-mortar-board"></i> Course'), courses_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
