@@ -1,0 +1,119 @@
+<!-- Large modal -->
+<% if !logged_in? %>
+  <%= render "static_pages/logo" %>
+  <div class="col-md-4">
+    <h1 class = "login-title" ><%= t "static_pages.title" %></h1>
+    <p class="p-content"><%= t "static_pages.content" %></p>
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    <%= t "static_pages.signin" %></button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            ×</button>
+            <h4 class="modal-title" id="myModalLabel">
+              <%= t "static_pages.login" %> - <%= t "static_pages.framgia" %>
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-8">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <%= link_to "#Login" data-toggle: "tab", do %>
+                      <%= t "static_pages.home.login" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#forgot", data-toggle: "tab", do %>
+                      <%= t "static_pages.home.forgot" %>
+                    <% end %>
+                  </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div class="tab-pane active" id="Login">
+                    <%= form_for(:session, url: login_path, html: {class: "form-horizontal"}) do |f| %>
+                    <div class="form-group">
+                      <%= f.label :email, t("user.form.email"), class: "col-sm-2 control-label" %>
+                      <div class="col-sm-10">
+                        <%= f.email_field :email, class: "form-control input-lg", placeholder: t("static_pages.home.email") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :password, t("user.form.password"), class: "col-sm-2 control-label" %>
+                      <div class="col-sm-10">
+                        <%= f.password_field :password, class: "form-control input-lg", placeholder: t("static_pages.home.password") %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-6">
+                        <%= f.label :remember_me, class: "switch switch-primary", title: t("static_pages.home.title") do %>
+                          <%= f.check_box :remember_me %>
+                          <span></span>
+                        <% end %>
+                      </div>
+                      <div class="col-sm-4">
+                        <%= f.submit t("sessions.new.submit"), class: "btn btn-sm btn-primary" %>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                  <div class="tab-pane" id="forgot">
+                    <%= form_for(:password_reset, url: password_resets_path, html: {class: "form-horizontal form-bordered form-control-borderless"}) do |f| %>
+                    <div class="form-group">
+                      <%= f.label :email, t("user.form.email"), class: "col-sm-2 control-label" %>
+                      <div class="col-sm-10">
+                        <%= f.email_field :email, class: "form-control input-lg", placeholder: t("static_pages.home.email") %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-10">
+                        <%= f.submit t("password_reset.new.submit"), class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div id="OR" class="hidden-xs">
+                  <%= t "static-pages.or" %>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row text-center sign-with">
+                  <div class="col-md-12">
+                    <h3>
+                      <%= t "static-pages.sign" %>
+                    </h3>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="btn-group btn-group-justified">
+                      <%= link_to "#", class: "btn btn-primary", do %>
+                        <%= t "static_pages.facebook" %>
+                      <% end %> 
+                      <%= link_to "#", class: "btn btn-danger", do %>
+                        <%= t "static_pages.google" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render "static_pages/index" %>
+<% elsif @current_user.admin? %>
+  <%= render "static_pages/adminview" %>
+<% else %>
+  <%= render "static_pages/trainee" %>
+<% end %>
