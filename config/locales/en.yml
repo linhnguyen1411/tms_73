@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  base_title: "Framgia Training System"
+  validate:
+    image_size: "Should be less than 5MB"
   footer:
   header:
     home: "Home"
@@ -234,7 +237,7 @@ en:
     framgia: "Framgia Training System"
     facebook: "Facebook"
     google: "Google"
-    index: 
+    index:
       inc: "Framgia Inc"
       hanoi: "Ha Noi Office"
       number1: "84-24-3795-5417"
@@ -253,7 +256,7 @@ en:
       trainer: "trainer"
     sign: "Sign in with"
     or: "OR"
-    home: 
+    home:
       login: "Login"
       forgot: "Forgot your password?"
       email: "Email"
