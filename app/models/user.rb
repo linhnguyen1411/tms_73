@@ -3,6 +3,7 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
   mount_uploader :avatar, PictureUploader
+  enum role: %I[admin trainer trainee]
   has_many :user_courses
   has_many :user_tasks
   has_many :reports
@@ -16,7 +17,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: {minimum: Settings.length.pass_min}, allow_nil: true
   validate :picture_size
-  enum role: %I[admin trainer trainee]
 
   def self.digest string
     cost =

@@ -12,7 +12,12 @@ User.create!(
   activated_at: Time.zone.now
 )
 User.create!(
-  name:  "Test Nguyen", email: "test@gmail.com", password: "123456",
+  name:  "Test Nguyen", email: "t@gmail.com", password: "123456",
+  password_confirmation: "123456", role: 0, activated: true, avatar: "ac.jpg",
+  activated_at: Time.zone.now
+)
+User.create!(
+  name:  "Trainer Nguyen", email: "tn1@gmail.com", password: "123456",
   password_confirmation: "123456", role: 1, activated: true, avatar: "logo.png",
   activated_at: Time.zone.now
 )
@@ -22,7 +27,7 @@ User.create!(
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(
-    name: name, email: email, password: password, avatar: "logo.png", role: 3,
+    name: name, email: email, password: password, avatar: "logo.png",
     password_confirmation: password, activated: true, activated_at: Time.zone.now
   )
 end
