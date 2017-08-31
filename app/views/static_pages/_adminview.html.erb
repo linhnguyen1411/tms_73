@@ -1,0 +1,91 @@
+<div id="page-content" style="min-height: 1534px;">
+  <!-- Courses Header -->
+  <div class="content-header">
+    <div class="header-section">
+      <h1>
+        <i class="gi gi-book_open"></i>Welcome to <strong>e-Learning</strong><br><small>Courses Hub!</small>
+      </h1>
+    </div>
+  </div>
+  <ul class="breadcrumb breadcrumb-top">
+    <li>Pages</li>
+    <li>e-Learning</li>
+    <li><a href="">Courses</a></li>
+  </ul>
+  <!-- END Courses Header -->
+  <!-- Main Row -->
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <%= render partial: "course" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <!-- Navigation Tabs -->
+      <div class="block full">
+        <!-- Navigation Tabs Title -->
+        <div class="block-title">
+          <ul class="nav nav-tabs" data-toggle="tabs">
+            <li class="active"><a href="#courses-categories">Categories</a></li>
+            <li><a href="#courses-tools">Tools</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- END Navigation Tabs -->
+      <!-- Your Account Block -->
+      <div class="block">
+        <!-- Your Account Title -->
+        <div class="block-title">
+          <div class="block-options pull-right">
+            <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Settings">
+            <i class="fa fa-cog"></i>
+            </a>
+          </div>
+          <h2><strong>Account</strong> Status</h2>
+        </div>
+        <!-- END Your Account Title -->
+        <!-- Your Account Content -->
+        <div class="block-section">
+          <table class="table table-borderless table-striped table-vcenter">
+            <tbody>
+              <tr>
+                <td class="text-right" style="width: 30%;">
+                  <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar" class="img-circle">
+                </td>
+                <td><a href="page_ready_user_profile.html"><strong>John Doe</strong></a><br><em>e-Learner</em></td>
+              </tr>
+              <tr>
+                <td class="text-right">Account</td>
+                <td>
+                  <strong>Basic</strong> <a href="page_ready_pricing_tables.html">Upgrade?</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-right">Courses</td>
+                <td>
+                  <i class="fa fa-plus fa-fw text-info"></i> <a href="javascript:void(0)"><strong>3</strong> New</a><br>
+                  <i class="fa fa-heart fa-fw text-danger"></i> <a href="javascript:void(0)"><strong>5</strong> Favorites</a><br>
+                  <i class="fa fa-check fa-fw text-success"></i> <a href="javascript:void(0)"><strong>10</strong> Completed</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- END Your Account Content -->
+      </div>
+      <!-- END Your Account Block -->
+      <!-- Most Viewed Courses Block -->
+      <div class="block">
+        <!-- Most Viewed Courses Title -->
+        <div class="block-title">
+          <h2><strong>Most Viewed</strong> Courses</h2>
+        </div>
+        <!-- END Most Viewed Courses Title -->
+        <!-- Most Viewed Courses Content -->
+        <!-- END Most Viewed Courses Content -->
+      </div>
+      <!-- END Most Viewed Courses Block -->
+    </div>
+  </div>
+  <!-- END Main Row -->
+</div>

@@ -1,0 +1,159 @@
+<!-- Large modal -->
+<div id="login-logo">
+  <%= image_tag "Framgia-Logo.png" %>
+</div>
+<div class="col-md-4">
+  <h1 id = "login-title" >Training System</h1>
+  <p style="font-size:30px">Website management trainee of Human resource training department.</p>
+  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Sign In</button>
+  <div class="modal fade" style="padding-top: 10%" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          ×</button>
+          <h4 class="modal-title" id="myModalLabel">
+            Login - <a href="http://www.jquery2dotnet.com">Framgia Training System</a>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                <li><a href="#forgot" data-toggle="tab">Forgot your password?</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="Login">
+                    <%= form_for(:session, url: login_path, html: {class: "form-horizontal"}) do |f| %>
+                    <div class="form-group">
+                      <label for="email" class="col-sm-2 control-label">
+                      Email</label>
+                      <div class="col-sm-10">
+                        <%= f.email_field :email, class: "form-control input-lg", placeholder: "Email" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1" class="col-sm-2 control-label">
+                      Password</label>
+                      <div class="col-sm-10">
+                        <%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-6">
+                        <%= f.label :remember_me, class: "switch switch-primary", title: "Remember Me on this computer?" do %>
+                        <%= f.check_box :remember_me %>
+                        <span></span>
+                        <% end %>
+                      </div>
+                      <div class="col-sm-4">
+                        <%= f.submit t("sessions.new.submit"), class: "btn btn-sm btn-primary" %>
+                      </div>
+                    </div>
+                    <% end %>
+                </div>
+                <div class="tab-pane" id="forgot">
+                  <%= form_for(:password_reset, url: password_resets_path, html: { class: "form-horizontal form-bordered form-control-borderless" }) do |f| %>
+                    <div class="form-group">
+                      <label for="email" class="col-sm-2 control-label">
+                      Email</label>
+                      <div class="col-sm-10">
+                        <%= f.email_field :email, class: "form-control input-lg", placeholder: "Email" %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-10">
+                        <%= f.submit t("password_reset.new.submit"), class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div id="OR" class="hidden-xs">
+                OR
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="row text-center sign-with">
+                <div class="col-md-12">
+                  <h3>
+                    Sign in with
+                  </h3>
+                </div>
+                <div class="col-md-12">
+                  <div class="btn-group btn-group-justified">
+                    <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
+                    Google</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-8">
+  <div class="login-banner">
+    <%= image_tag "placeholders/login/f11.jpg" %>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="login-footer">
+  <div class="col-md-12">
+    <h3 id="framgia">Framgia Inc</h3>
+  </div>
+  <div class="col-md-3">
+    <ul>
+      <li class="fheader">Ha Noi Office</li>
+      <li><i class="fa fa-map-marker fa-2" aria-hidden="true"></i>
+        13F Keangnam Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem District., Ha Noi
+      </li>
+      <li><i class="fa fa-phone fa-2" aria-hidden="true"></i> 84-24-3795-5417</li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <ul>
+      <li class="fheader">Laboratory</li>
+      <li>
+        <i class="fa fa-map-marker fa-2" aria-hidden="true"></i>
+        9F HTP Building, 434 Tran Khat Chan, 1km from Bach Khoa University, Ha Noi
+      </li>
+      <li><i class="fa fa-phone fa-2" aria-hidden="true"></i> 84-24-3795-5417</li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <ul>
+      <li class="fheader">Ho Chi Minh Office</li>
+      <li>
+        <i class="fa fa-map-marker fa-2" aria-hidden="true"></i>
+        8F Nice building, 467 Dien Bien Phu Str., Ward 25, Binh Thanh district, HCMC
+      </li>
+      <li><i class="fa fa-phone fa-2" aria-hidden="true"></i> 84-24-3795-5417</li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <ul>
+      <li class="fheader">Da Nang Office</li>
+      <li>
+        <i class="fa fa-map-marker fa-2" aria-hidden="true"></i>
+        6F, Vinh Trung Plaza, 255~257 Hung Vuong Str., Vinh Trung ward, Thanh Khe district, Da Nang
+      </li>
+      <li><i class="fa fa-phone fa-2" aria-hidden="true"></i> 84-24-3795-5417</li>
+    </ul>
+  </div>
+</div>
+<script>
+  $ = Jquery
+  $('#myModal').modal('show');
+</script>

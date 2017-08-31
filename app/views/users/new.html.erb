@@ -1,0 +1,14 @@
+<% provide(:title, t("user.new.title")) %>
+<% provide(:button_text, t("user.new.create")) %>
+<div id="page-content">      
+	<ul class="breadcrumb breadcrumb-top">
+	  <li><%= t "user.index.user" %></li>
+	  <li><a href=""><%= t "user.index.new" %></a></li>
+	</ul>
+	<div class="block full">
+	  <div class="block-title text-center">
+      <h1><%= t"user.new.title" %></h1>
+    </div>
+    	<%= render "form", url: {url: signup_path} %>
+	</div>
+</div>

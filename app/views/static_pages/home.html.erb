@@ -1,0 +1,107 @@
+<!-- Large modal -->
+<% if !logged_in? %>
+<%= render "static_pages/logo" %>
+<div class="col-md-4">
+  <h1 id = "login-title" ><%= t "static_pages.title" %></h1>
+  <p style="font-size:30px"><%= t "static_pages.content"%></p>
+  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  <%= t "static_pages.signin" %></button>
+  <div class="modal fade" style="padding-top: 10%" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          ×</button>
+          <h4 class="modal-title" id="myModalLabel">
+            <%= t "static_pages.login" %> - <%= t "static_pages.framgia" %>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                <li><a href="#forgot" data-toggle="tab">Forgot your password?</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="Login">
+                    <%= form_for(:session, url: login_path, html: {class: "form-horizontal"}) do |f| %>
+                    <div class="form-group">
+                      <%= f.label :email, t("user.form.email"), class: "col-sm-2 control-label" %>
+                      <div class="col-sm-10">
+                        <%= f.email_field :email, class: "form-control input-lg", placeholder: "Email" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :password, t("user.form.password"), class: "col-sm-2 control-label" %>
+                      <div class="col-sm-10">
+                        <%= f.password_field :password, class: "form-control input-lg", placeholder: "Password" %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-6">
+                        <%= f.label :remember_me, class: "switch switch-primary", title: "Remember Me on this computer?" do %>
+                        <%= f.check_box :remember_me %>
+                        <span></span>
+                        <% end %>
+                      </div>
+                      <div class="col-sm-4">
+                        <%= f.submit t("sessions.new.submit"), class: "btn btn-sm btn-primary" %>
+                      </div>
+                    </div>
+                    <% end %>
+                </div>
+                <div class="tab-pane" id="forgot">
+                  <%= form_for(:password_reset, url: password_resets_path, html: { class: "form-horizontal form-bordered form-control-borderless" }) do |f| %>
+                    <div class="form-group">
+                      <%= f.label :email, t("user.form.email"), class: "col-sm-2 control-label" %>
+                      <div class="col-sm-10">
+                        <%= f.email_field :email, class: "form-control input-lg", placeholder: "Email" %>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-2">
+                      </div>
+                      <div class="col-sm-10">
+                        <%= f.submit t("password_reset.new.submit"), class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div id="OR" class="hidden-xs">
+                OR
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="row text-center sign-with">
+                <div class="col-md-12">
+                  <h3>
+                    Sign in with
+                  </h3>
+                </div>
+                <div class="col-md-12">
+                  <div class="btn-group btn-group-justified">
+                    <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
+                    Google</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "static_pages/index" %>
+<% elsif @current_user.admin? %>
+  <%= render "static_pages/adminview" %>
+<% elsif %>
+  <%= render "static_pages/trainee" %>
+<% end %>

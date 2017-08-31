@@ -1,0 +1,224 @@
+<% provide(:title, @user.name) %>
+<div id="page-content" style="min-height: 1438px;">
+  <ul class="breadcrumb breadcrumb-top">
+    <li><%= t "user.index.user" %></li>
+    <li class="active"><a href=""><%= t "user.show.profile" %></a></li>
+  </ul>
+  <div class="row">
+    <div class="col-sm-4 col-lg-3">
+      <!-- Menu Block -->
+      <div class="block full">
+        <!-- Menu Title -->
+        <div class="block-title clearfix text-center">
+          <h2><strong><%= t "user.show.infomation" %></strong></h2>
+        </div>
+        <ul class="nav nav-pills nav-stacked text-center">
+          <li class="active">
+            <%= image_tag @user.avatar if @user.avatar? %>
+          </li>
+          <li>
+            <h3>
+              <strong><%= @user.name %></strong>
+            </h3>
+          </li>
+          <li>
+            <strong><%= t "user.show.email" %></strong>
+          </li>
+          <li>
+            <%= @user.email %>
+          </li>
+          <% if current_user? @user %>
+          <li>
+            <%= link_to edit_user_path(current_user) do %><i class="fa fa-pencil"></i><% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="block">
+        <div class="block-title text-center">
+          <h2><strong><%= t "user.show.about" %></strong></h2>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active">
+            <strong><i class="fa fa-university margin-r-5"></i><%= t "user.show.university" %></strong>
+            <p><%= @user.schools %></p>
+          </li>
+          <hr>
+          <li>
+            <strong><i class="fa fa-calendar margin-r-5"></i><%= t "user.show.graduation" %></strong>
+            <p><%= @user.graduation %></p>
+          </li>
+          <hr>
+          <li>
+            <strong><i class="fa fa-file-text-o margin-r-5"></i><%= t "user.show.note" %></strong>
+            <p></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-8 col-lg-9">
+      <!-- Tickets Block -->
+      <div class="block">
+        <!-- Tickets Title -->
+        <div class="block-title">
+          <ul class="nav nav-tabs" data-toggle="tabs">
+            <li class="active"><a href="#tickets-list"><%= t "user.show.profile" %></a></li>
+            <li class=""><a href="#tickets-single"><%= t "user.show.timeline" %></a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <!-- Tickets List -->
+          <div class="tab-pane active" id="tickets-list">
+            <div class="block-content-full">
+              <div class="table-responsive remove-margin-bottom">
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td><%= t "user.show.name" %></td>
+                      <td><%= @user.name %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t "user.show.email" %></td>
+                      <td><%= @user.email %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t "user.show.university" %></td>
+                      <td><%= @user.schools %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t "user.show.graduation" %></td>
+                      <td><%= @user.graduation %></td>
+                    </tr>
+                    <tr>
+                      <td><%= t "user.show.start" %></td>
+                      <td>2017-07-17</td>
+                    </tr>
+                    <tr></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- END Tickets List -->
+          <!-- Ticket View -->
+          <div class="tab-pane" id="tickets-single">
+            <div class="block full">
+              <div class="timeline block-content-full">
+                <ul class="timeline-list timeline-hover">
+                  <li>
+                    <div class="timeline-icon"><i class="gi gi-cake"></i>
+                    </div>
+                    <div class="timeline-time">8:00 <strong>am</strong>
+                    </div>
+                    <div class="timeline-content">
+                      <p class="push-bit"><strong>Breakfast</strong>
+                      </p>
+                      <p class="push-bit">An awesome breakfast will wait for you at the lobby!</p>
+                      <div class="row push">
+                        <div class="col-sm-6 col-md-4">
+                          <a href="img/placeholders/photos/photo6.jpg" data-toggle="lightbox-image">
+                          <img src="img/placeholders/photos/photo6.jpg" alt="image">
+                          </a>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                          <a href="img/placeholders/photos/photo7.jpg" data-toggle="lightbox-image">
+                          <img src="img/placeholders/photos/photo7.jpg" alt="image">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="active">
+                    <div class="timeline-icon"><i class="fa fa-file-text"></i>
+                    </div>
+                    <div class="timeline-time">9:15 <strong>am</strong>
+                    </div>
+                    <div class="timeline-content">
+                      <p class="push-bit"><strong>Web Design Session</strong>
+                      </p>
+                      A1 Conference Room
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-icon"><i class="fa fa-coffee"></i>
+                    </div>
+                    <div class="timeline-time">10:30 <strong>am</strong>
+                    </div>
+                    <div class="timeline-content">
+                      <strong>Coffee Break</strong>
+                    </div>
+                  </li>
+                  <li class="active">
+                    <div class="timeline-icon"><i class="fa fa-file-text"></i>
+                    </div>
+                    <div class="timeline-time">11:00 <strong>pm</strong>
+                    </div>
+                    <div class="timeline-content">
+                      <p class="push-bit"><strong>Web Development Session</strong>
+                      </p>
+                      B6 Conference Room
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-icon"><i class="fa fa-cutlery"></i>
+                    </div>
+                    <div class="timeline-time">1:30 <strong>pm</strong>
+                    </div>
+                    <div class="timeline-content">
+                      <p class="push-bit"><strong>Lunch</strong>
+                      </p>
+                      <p class="push-bit">Awesome food prepared by our awesome chefs!</p>
+                      <div class="row push">
+                        <div class="col-sm-6 col-md-4">
+                          <a href="img/placeholders/photos/photo23.jpg" data-toggle="lightbox-image">
+                          <img src="img/placeholders/photos/photo23.jpg" alt="image">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-icon"><i class="gi gi-beach_umbrella"></i>
+                    </div>
+                    <div class="timeline-time">3:00 <strong>pm</strong>
+                    </div>
+                    <div class="timeline-content">
+                      <p class="push-bit"><strong>Break</strong>
+                      </p>
+                      Relax time after lunch
+                    </div>
+                  </li>
+                  <li class="active">
+                    <div class="timeline-icon"><i class="fa fa-file-text"></i>
+                    </div>
+                    <div class="timeline-time">5:00 <strong>pm</strong>
+                    </div>
+                    <div class="timeline-content">
+                      <p class="push-bit"><strong>Web Standards Session</strong>
+                      </p>
+                      C1 Conference Room
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-icon"><i class="fa fa-globe"></i>
+                    </div>
+                    <div class="timeline-content">
+                      <p class="push-bit"><strong>End of first day</strong>
+                      </p>
+                      <p class="push-bit">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- END Timeline Style Content -->
+            </div>
+          </div>
+          <!-- END Ticket View -->
+        </div>
+        <!-- END Tabs Content -->
+      </div>
+      <!-- END Tickets Block -->
+    </div>
+  </div>
+  <!-- END Tickets Content -->
+</div>

@@ -1,0 +1,100 @@
+<%= form_for(@user, html: { class: "form-horizontal form-bordered form-control-borderless" }) do |f| %>
+<%= render "shared/error_messages", object: @user %>
+<div class="form-group">
+  <%= f.label :name, t("user.form.name"), class: "col-md-3 control-label" %>
+  <div class="col-md-5">
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :email, t("user.form.email"), class: "col-md-3 control-label" %>
+  <div class="col-md-5">
+    <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :password, t("user.form.password"), class: "col-md-3 control-label" %>
+  <div class="col-md-5">
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :password_confirmation, t("user.form.confirmation"), class: "col-md-3 control-label" %>
+  <div class="col-md-5">
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password_confirmation" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-3 control-label" for="example-select">Roles</label>
+  <div class="col-md-5">
+    <%= f.select(:role, User.roles.collect {|k, v|[k, k]}, {}, { class: "form-control" }) %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :schools, t("user.form.schools"), class: "col-md-3 control-label" %>
+  <div class="col-md-5">
+    <%= f.text_field :schools, class: "form-control", placeholder: "Schools" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :graduation, t("user.form.graduation"), class: "col-md-3 control-label" %>
+  <div class="col-md-5">
+    <%= f.text_field :graduation, class: "form-control", placeholder: "Graduation" %>
+  </div>
+</div>
+<div class ="form-group">
+  <div class="col-md-3"></div>
+  <div id="img-previews" class="col-md-3">
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar %>
+    <% else %>
+      <%= image_tag "placeholders/avatars/profile.png" %> 
+    <% end %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :avatar, t("user.form.avatar"), class: "col-md-3 control-label" %>
+  <div class="col-md-4">
+    <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
+  </div>
+</div>
+<div class="form-group form-actions">
+  <div class="col-md-9 col-md-offset-3">
+    <%= f.submit yield(:button_text), class: "btn btn-sm btn-primary" %>
+  </div>
+</div>
+<% end %>
+<script type="text/javascript">
+  $("#user_avatar").bind("change", function(evt) {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert("Maximum file size is 5MB. Please choose a smaller file.");
+    }
+    var files = evt.target.files;
+      document.getElementById('img-previews').innerHTML = '';
+      for (var i = 0, f; f = files[i]; i++) {
+          if (!f.type.match('image.*')) {
+              continue;
+          }
+          $('.img-preview-wrapper').removeClass('hidden');
+          var reader = new FileReader();
+          reader.onload = (function(theFile) {
+              return function(e) {
+                  var span = document.createElement('span');
+                  span.className = 'image_wraper';
+                  span.innerHTML = ['<img class="img_preview_status" src="', e.target.result,
+                      '" title="', escape(theFile.name), '"/>'
+                  ].join('');
+                  document.getElementById('img-previews').insertBefore(span, null);
+              };
+          })(f);
+          reader.readAsDataURL(f);
+      }
+  });
+</script>
+<style type="text/css" media="screen"> 
+  img
+    {
+      height: 150px;
+    } 
+</style>
