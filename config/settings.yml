@@ -1,1 +1,7 @@
 paginate_page: "6"
+picture_size: "5"
+time_expired: "2"
+length:
+  name_max: "50"
+  email_max: "255"
+  pass_min: "6"
